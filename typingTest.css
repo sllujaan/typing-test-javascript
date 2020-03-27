@@ -1,0 +1,69 @@
+:root{
+    --border-radius: 4px;
+}
+
+
+.basic-words-container{
+    background-color: lightseagreen;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.basic-word{
+    background-color: brown;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+}
+
+.basic-letter {
+    background-color: goldenrod;
+    padding: 10px;
+    font-size: 32px;
+    border-radius: var(--border-radius);
+}
+
+.letter-active{
+    color: gray;
+    background-color: green;
+    border-bottom: 4px solid red;
+    transition: all 1s;
+    animation: letter-active-border-bottom 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes letter-active-border-bottom {
+    0% {border-bottom: 4px solid green;}
+    100% {border-bottom: 4px solid red;}
+}
+
+
+/*Wrong keyword css*/
+.is-wrong{
+    color: red;
+    border-bottom: 4px solid red;
+}
+
+.is-wrong-animated {
+    transition: all 1s;
+    animation: is-wrong-animated .5s;
+}
+
+@keyframes is-wrong-animated {
+    0% {transform: translateX(0px);}
+    25% {transform: translateX(2px);}
+    50% {transform: translateX(-4px);}
+    75% {transform: translateX(4px);}
+    100% {transform: translateX(-2px);}
+}
+
+/*--------------------*/
+
+
+
+/*Correct keyword css*/
+.is-correct{
+    color: green;
+}
+/*--------------------*/
