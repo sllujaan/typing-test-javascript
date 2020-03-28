@@ -46,21 +46,22 @@ function setLetterActive_next() {
 
 
 function setPrevLetter() {
+    var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_next = document.getElementsByClassName("letter-next")[0]
 
-    if(letter_next.previousElementSibling) {
+    console.log(letter_active)
+    console.log(letter_next)
+
+    if(letter_active.previousElementSibling) {
+        letter_active.previousElementSibling.classList.add("letter-active")
+        letter_active.classList.remove("letter-active")
+        
+        letter_next.previousElementSibling.classList.add("letter-next")
         letter_next.classList.remove("letter-next")
-        letter_next = letter_next.nextElementSibling
-        letter_next.classList.add("letter-next")
+
     }
-    else if(letter_next.parentElement.nextElementSibling && letter_next.parentElement.nextElementSibling.classList.contains("basic-word")){
-        letter_next.classList.remove("letter-next")
-        var current_word = letter_next.parentElement
-        current_word = current_word.nextElementSibling
-        current_word.children[0].classList.add("letter-next")
-    }
-    else{
-        console.log("end")
+    else if(letter_active.parentElement.previousElementSibling && letter_active.parentElement.previousElementSibling.classList.contains("basic-word")) {
+        console.log("prev else>>>>>>>>>>>>>>>>")
     }
 }
 
@@ -93,7 +94,9 @@ document.addEventListener('keyup', (event) => {
 
     console.log(letter_active.innerText)
     console.log(event.key)
-    if(event.key !== "Shift") {
+
+    //Normal next functionality---------------
+    if((event.key !== "Shift") && (event.key !== "Backspace")) {
         if(letter_active.innerText === event.key){
             console.log("correct.")
             setLetterActive_next()
@@ -101,9 +104,23 @@ document.addEventListener('keyup', (event) => {
         }
         else{
             console.log("wrong.")
+            if(letter_active.previousElementSibling && letter_active.previousElementSibling.classList.contains("is-correct")) {
+                setLetterActive_next()
+            }
+            
             handleClassesOnWrong(letter_active, letter_next)
         }
+
     }
+    //-------------------------------------------------
+
+
+    //Backspace functionality---------------------------------------
+    if(event.key === "Backspace") {
+        console.log("nowwwww")
+        setPrevLetter()
+    }
+    //-----------------------------------
 
 })
 
