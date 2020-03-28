@@ -4,14 +4,6 @@ basic_word.children[0].classList.add("letter-next")
 
 
 setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
-setLetterActive_next()
 
 
 
@@ -56,7 +48,7 @@ function setLetterActive_next() {
 function setPrevLetter() {
     var letter_next = document.getElementsByClassName("letter-next")[0]
 
-    if(letter_next.nextElementSibling) {
+    if(letter_next.previousElementSibling) {
         letter_next.classList.remove("letter-next")
         letter_next = letter_next.nextElementSibling
         letter_next.classList.add("letter-next")
@@ -77,6 +69,9 @@ function setPrevLetter() {
 
 document.addEventListener('keyup', (event) => {
 
+    var letter_active = document.getElementsByClassName("letter-active")[0]
+    var letter_next = document.getElementsByClassName("letter-next")[0]
+    /*
     var letter_active = document.getElementsByClassName("letter-next")[0]
     var word_current = letter_active.parentElement
     var letter_next
@@ -94,11 +89,14 @@ document.addEventListener('keyup', (event) => {
         console.log(letter_active)
         console.log(next_letter)
         
-    }
+    }*/
 
+    console.log(letter_active.innerText)
+    console.log(event.key)
     if(event.key !== "Shift") {
         if(letter_active.innerText === event.key){
             console.log("correct.")
+            setLetterActive_next()
             handleClassesOnCorrect(letter_active, letter_next)
         }
         else{
@@ -106,19 +104,14 @@ document.addEventListener('keyup', (event) => {
             handleClassesOnWrong(letter_active, letter_next)
         }
     }
-    
 
-    console.log(letter_active)
-    console.log(next_letter)
-    
-   
 })
 
 
 function handleClassesOnCorrect(letter_active, letter_next) {
     letter_active.classList.remove("letter-active")
     letter_active.classList.add("is-correct")
-    next_letter.classList.add("letter-active")
+    letter_next.classList.add("letter-active")
 }
 
 function handleClassesOnWrong(letter_active, letter_next) {
