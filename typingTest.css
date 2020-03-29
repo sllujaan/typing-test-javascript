@@ -8,7 +8,7 @@
     border-bottom: 1px solid #d9d9d9;
     box-sizing: border-box;
     content: "";
-    height: 200%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -21,14 +21,9 @@
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
 }
-
-.basic-lines:before{
-    content: 'abc';
-    background-color: chartreuse;
-    width: 100%;
-}
-
 
 
 .basic-word{
@@ -36,7 +31,8 @@
     display: flex;
     margin: 0;
     padding: 10px;
-    z-index: var(--words-z-index);
+    position: relative;
+    overflow: visible;
 }
 
 .basic-letter {
@@ -44,7 +40,29 @@
     padding: 10px;
     font-size: 32px;
     border-radius: var(--border-radius);
+    position: relative;
 }
+
+
+.basic-lines .basic-word:before{
+    content: '';
+    background-color: transparent;
+    width: 500%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    border-bottom: 2px solid gray;
+    overflow: visible;
+    box-sizing: border-box;
+    z-index: 1000;
+    transform: translateX(50%);
+    /*transform: translate(-40px, 60px);*/
+    
+}
+
+
+
 
 .letter-active{
     color: gray;
