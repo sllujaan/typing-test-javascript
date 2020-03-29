@@ -124,10 +124,9 @@ document.addEventListener('keyup', (event) => {
 
     console.log(letter_active.innerText)
     console.log(event.key)
-
     //Normal next functionality---------------
     if((event.key !== "Shift") && (event.key !== "Backspace")) {
-        if(letter_active.innerText === event.key){
+        if(letter_active.innerText.trim() === event.key.trim()){
             console.log("correct.")
             setLetterActive_next()
             handleClassesOnCorrect(letter_active, letter_next)
@@ -151,6 +150,16 @@ document.addEventListener('keyup', (event) => {
         setPrevLetter()
     }
     //-----------------------------------
+
+    //space comparison------------------------------
+    function isSpace(event, text) {
+        console.log(text)
+        if( (event.Code === "Space") && (text === "&npsp;") ) {
+            return true
+        }
+        return false
+    }
+    //--------------------------------------------
 
 })
 
