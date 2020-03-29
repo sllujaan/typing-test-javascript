@@ -22,7 +22,13 @@ function setNextLetter() {
         current_word.children[0].classList.add("letter-next")
     }
     else{
-        console.log("end")
+        console.log("Next end-------------------------->>>>")
+
+        var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
+        console.log(basic_words_container.lastElementChild.lastElementChild)
+
+        console.log("final stage-------------;;;;;;;;;;;;;;;;;;;;;;;;;")
+        getNetWPM()
     }
 }
 
@@ -53,15 +59,39 @@ function setPrevLetter() {
     console.log(letter_next)
 
     if(letter_active.previousElementSibling) {
-        letter_active.previousElementSibling.classList.add("letter-active")
-        letter_active.classList.remove("letter-active")
         
-        letter_next.previousElementSibling.classList.add("letter-next")
-        letter_next.classList.remove("letter-next")
+        if(letter_active.parentElement === letter_next.parentElement) {
+            letter_active.previousElementSibling.classList.add("letter-active")
+            letter_active.classList.remove("letter-active")
+            
+            letter_next.previousElementSibling.classList.add("letter-next")
+            letter_next.classList.remove("letter-next")
+        }
+        else{
+            letter_next.classList.remove("letter-next")
+            letter_active.classList.add("letter-next")
+            
+            letter_active.classList.remove("letter-active")
+            letter_active.previousElementSibling.classList.add("letter-active")
+
+            console.log("prev different parent-------------------------->>>>")
+        }
 
     }
     else if(letter_active.parentElement.previousElementSibling && letter_active.parentElement.previousElementSibling.classList.contains("basic-word")) {
-        console.log("prev else>>>>>>>>>>>>>>>>")
+            letter_next.classList.remove("letter-next")
+            letter_active.classList.add("letter-next")
+
+            letter_active.classList.remove("letter-active")
+
+            console.log(letter_active.parentElement.previousElementSibling.lastElementChild)
+
+            letter_active.parentElement.previousElementSibling.lastElementChild.classList.add("letter-active")
+
+            console.log("prev else>>>>>>>>>>>>>>>>")
+    }
+    else {
+        console.log("prev end-------------------------->>>>")
     }
 }
 
@@ -139,15 +169,10 @@ function handleClassesOnWrong(letter_active, letter_next) {
 }
 
 
-
-
-function getNextLetter() {
-
+function getNetWPM() {
+    var letters_correct = document.getElementsByClassName("is-correct")
+    console.log(letters_correct)
 }
-
-
-
-
 
 
 
@@ -172,6 +197,10 @@ function performAction(event) {
         }
     }
 }
+
+
+
+
 
 
 
