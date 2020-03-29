@@ -1,3 +1,9 @@
+@charset "UTF-8";/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+    font-family: sans-serif;
+    text-size-adjust: 100%;
+}
+
 :root{
     --border-radius: 4px;
     --words-z-index: 10;
@@ -45,6 +51,7 @@ body{
     font-size: 150%;
     border-radius: var(--border-radius);
     position: relative;
+    font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
 }
 
 

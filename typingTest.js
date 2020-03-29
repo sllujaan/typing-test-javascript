@@ -22,13 +22,11 @@ function setNextLetter() {
         current_word.children[0].classList.add("letter-next")
     }
     else{
-        console.log("Next end-------------------------->>>>")
-
         var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
         console.log(basic_words_container.lastElementChild.lastElementChild)
 
         console.log("final stage-------------;;;;;;;;;;;;;;;;;;;;;;;;;")
-        getNetWPM()
+        console.log(getNetWPM())
     }
 }
 
@@ -166,6 +164,7 @@ document.addEventListener('keyup', (event) => {
 
 function handleClassesOnCorrect(letter_active, letter_next) {
     letter_active.classList.remove("letter-active")
+    letter_active.classList.remove("is-wrong")
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
 }
@@ -180,7 +179,7 @@ function handleClassesOnWrong(letter_active, letter_next) {
 
 function getNetWPM() {
     var letters_correct = document.getElementsByClassName("is-correct")
-    console.log(letters_correct)
+    return letters_correct.length
 }
 
 
