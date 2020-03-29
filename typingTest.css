@@ -1,8 +1,4 @@
-@charset "UTF-8";/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-html {
-    font-family: sans-serif;
-    text-size-adjust: 100%;
-}
+
 
 :root{
     --border-radius: 4px;
@@ -14,15 +10,12 @@ body{
     font-size: x-large;
 }
 
-.screenBasic--1 .screenBasic-lines:before {
-    border-bottom: 1px solid #d9d9d9;
-    box-sizing: border-box;
-    content: "";
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%
+.basic-screen{
+    background-color: blueviolet;
+    /*height: 170px;*/
+    padding: 10px;
+    overflow: hidden;
+    transition: all 1s;
 }
 
 
@@ -33,6 +26,7 @@ body{
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
+    transition: all 1s;
 }
 
 

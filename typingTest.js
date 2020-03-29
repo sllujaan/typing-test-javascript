@@ -60,16 +60,16 @@ function setPrevLetter() {
         
         if(letter_active.parentElement === letter_next.parentElement) {
             letter_active.previousElementSibling.classList.add("letter-active")
-            letter_active.classList.remove("letter-active")
+            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             
             letter_next.previousElementSibling.classList.add("letter-next")
-            letter_next.classList.remove("letter-next")
+            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
         }
         else{
-            letter_next.classList.remove("letter-next")
+            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             letter_active.classList.add("letter-next")
             
-            letter_active.classList.remove("letter-active")
+            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             letter_active.previousElementSibling.classList.add("letter-active")
 
             console.log("prev different parent-------------------------->>>>")
@@ -77,10 +77,10 @@ function setPrevLetter() {
 
     }
     else if(letter_active.parentElement.previousElementSibling && letter_active.parentElement.previousElementSibling.classList.contains("basic-word")) {
-            letter_next.classList.remove("letter-next")
+            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             letter_active.classList.add("letter-next")
 
-            letter_active.classList.remove("letter-active")
+            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
 
             console.log(letter_active.parentElement.previousElementSibling.lastElementChild)
 
