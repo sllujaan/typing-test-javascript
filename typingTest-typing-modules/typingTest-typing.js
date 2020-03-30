@@ -1,4 +1,6 @@
 
+import {setCountDown, timer_minute, timer_second} from './timer.js'
+
 var basic_word = document.getElementsByClassName("basic-word")[0]
 basic_word.children[0].classList.add("letter-next")
 
@@ -11,6 +13,7 @@ console.log(basic_words_container_compStyles.getPropertyValue("transform"))
 setLetterActive_next()
 
 var letter_active_position_y = getLetterActiveYposition(basic_word.children[0])
+
 
 
 function setNextLetter() {
@@ -114,6 +117,12 @@ function setPrevLetter(callback) {
 
 
 document.addEventListener('keyup', (event) => {
+
+    //Set CountDown---------------------------------
+    setCountDown(1, 59, (done) => {
+        if(done) console.log(done)
+    })
+    //-----------------------------
 
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_next = document.getElementsByClassName("letter-next")[0]
