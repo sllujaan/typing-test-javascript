@@ -2,9 +2,15 @@
 var basic_word = document.getElementsByClassName("basic-word")[0]
 basic_word.children[0].classList.add("letter-next")
 
+var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
+var basic_words_container_compStyles = window.getComputedStyle(basic_words_container)
+console.log(basic_words_container_compStyles)
+
+console.log(basic_words_container_compStyles.getPropertyValue("transform"))
 
 setLetterActive_next()
 
+var letter_active_position_y = getLetterActiveYposition(basic_word.children[0])
 
 
 function setNextLetter() {
@@ -128,6 +134,7 @@ document.addEventListener('keyup', (event) => {
             console.log("correct.")
             setLetterActive_next()
             handleClassesOnCorrect(letter_active, letter_next)
+            handleLinesTransform(letter_next)
         }
         else{
             console.log("wrong.")
@@ -136,6 +143,7 @@ document.addEventListener('keyup', (event) => {
             }
             
             handleClassesOnWrong(letter_active, letter_next)
+            
         }
 
     }
@@ -184,6 +192,23 @@ function getNetWPM() {
 
 
 
+function handleLinesTransform(letter_next) {
+    var letter_active_current_position_y = getLetterActiveYposition(letter_next)
+    var diff = letter_active_current_position_y - letter_active_position_y
+    if(diff > 50) {
+        if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
+            basic_words_container.style.setProperty("transform", "translateY(-101px)")
+            letter_active_position_y = letter_active_current_position_y
+            console.log(letter_active_position_y)
+        }
+        else{
+            console.log("second transform")
+            basic_words_container.style.setProperty("transform", "translateY(-85px)")
+        }
+    }
+    console.log(getLetterActiveYposition(letter_next))
+}
+
 
 
 
@@ -208,7 +233,9 @@ function performAction(event) {
 
 
 
-
+function getLetterActiveYposition(letter_next) {
+    return letter_next.getBoundingClientRect().y;
+}
 
 
 
