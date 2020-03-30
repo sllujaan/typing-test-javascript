@@ -34,7 +34,8 @@ body{
     background-color: brown;
     display: flex;
     margin: 0;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: relative;
     overflow: visible;
 }
@@ -46,6 +47,7 @@ body{
     border-radius: var(--border-radius);
     position: relative;
     font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+    font-weight: normal;
 }
 
 
