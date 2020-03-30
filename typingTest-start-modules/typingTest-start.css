@@ -1,0 +1,22 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+}
+
+.start-container{
+    background-color: darkorange;
+}
+
+.btn{
+    margin: 10px;
+    padding: 10px 150px;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: orangered;
+
+}
