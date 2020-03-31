@@ -2,7 +2,6 @@
 import {setCountDown, timer_minute, timer_second} from './timer.js'
 
 
-
 //Reading parameter from url
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
@@ -16,6 +15,11 @@ if(test) {
 }
 
 //---------------------------------------------
+
+
+//Setting Coutndown variable-------------------------
+var countDownStarted = false
+//-----------------------------------------------------
 
 
 var basic_word = document.getElementsByClassName("basic-word")[0]
@@ -135,11 +139,18 @@ function setPrevLetter(callback) {
 
 document.addEventListener('keyup', (event) => {
 
-    //Set CountDown---------------------------------
-    setCountDown(minParam, 0, (done) => {
-        if(done) console.log(done)
-    })
-    //-----------------------------
+    //Set CountDown-------------------------------------
+    if(!countDownStarted) {
+        setCountDown(minParam, 0, (done) => {
+            if(done) {
+                var score = 0
+                window.location = `../typingTest-finish-modules/typingTest-finish.html?score=${score}`
+            }
+        })
+        countDownStarted = true
+    } 
+    //------------------------------------
+
 
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_next = document.getElementsByClassName("letter-next")[0]
@@ -288,7 +299,7 @@ function handleLinesTransform_downwards(letter_active, letter_active_prev_positi
 
 
 
-
+/*
 function performAction(event) {
     if(event.key !== "Shift") {
         if(letter_active.innerText === event.key){
@@ -306,7 +317,7 @@ function performAction(event) {
         }
     }
 }
-
+*/
 
 
 function getLetterActiveYposition(letter_next) {
@@ -314,13 +325,16 @@ function getLetterActiveYposition(letter_next) {
 }
 
 
+
+
+/*
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
 //console.log(urlParams.toString().split('&') )
 
 
 console.log( urlParams.get('test') )
-
+*/
 
 
 

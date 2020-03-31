@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.socre-container {
+    background-color: orange;
+    text-align: center;
+    padding: 10px;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border-radius: 4px;
+}
+
+.score-title{
+    background-color: palegoldenrod;
+    padding: 10px 100px;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: gray;
+}
+
+.score-board {
+    background-color: palegreen;
+    padding: 10px 100px;
+    font-weight: bold;
+}
+
+.repeat {
+    padding: 10px;
+    background-color: violet;
+}
+
+button {
+    padding: 10px 100px;
+    border: none;
+    background-color: lightgreen;
+    transition: all .5s;
+    font-weight: bold;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+}
+
+button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
