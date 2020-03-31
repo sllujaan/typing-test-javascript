@@ -1,5 +1,4 @@
 
-
 :root{
     --border-radius: 4px;
     --words-z-index: 10;
@@ -8,7 +7,40 @@
 
 body{
     font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
 }
+
+h1{
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+}
+
+
+/*timer container css contenct*/
+.timer-container {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.timer{
+    background-color: darkorange;
+    padding: 10px;
+    font-weight: bolder;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+}
+/*--------------------*/
+
 
 .basic-screen{
     background-color: blueviolet;
@@ -116,23 +148,3 @@ body{
 /*--------------------*/
 
 
-
-
-/*timer container css contenct*/
-
-.timer-container {
-    background-color: darkblue;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.timer{
-    background-color: darkorange;
-    padding: 10px;
-    font-weight: bolder;
-}
-
-
-
-/*--------------------*/
