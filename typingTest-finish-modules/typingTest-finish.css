@@ -1,3 +1,7 @@
+:root{
+    --border-radius: 10px;
+}
+
 body{
     display: flex;
     justify-content: center;
@@ -6,50 +10,50 @@ body{
 }
 
 .socre-container {
-    background-color: orange;
     text-align: center;
     padding: 10px;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    border-radius: var(--border-radius);
 }
 
 .score-title{
-    background-color: palegoldenrod;
     padding: 10px 100px;
     font-weight: bolder;
     font-size: xx-large;
     color: gray;
     text-shadow: 0 0 2px gray;
+    border-radius: var(--border-radius);
 }
 
 .score-board {
-    background-color: palegreen;
     padding: 10px 100px;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 150px;
     text-shadow: 0 0 2px gray;
+    border-radius: var(--border-radius);
+    margin: 10px;
 }
 
 .repeat {
     padding: 10px;
-    background-color: violet;
 }
 
 button {
     padding: 10px 100px;
     border: none;
-    background-color: lightgreen;
+    background-color: orangered;
     transition: all .5s;
     font-weight: bold;
     border-radius: 4px;
     letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     text-shadow: 0 0 3px gray;
     font-size: x-large;
+    color: white;
 }
 
 button:hover {

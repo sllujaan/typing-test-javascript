@@ -1,4 +1,10 @@
 
+:root{
+    --border-radius-box: 10px;
+    --border-radius-btn: 4px;
+}
+
+
 body {
     display: flex;
     justify-content: center;
@@ -7,15 +13,31 @@ body {
 }
 
 .start-container{
-    background-color: darkorange;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    border-radius: var(--border-radius-box);
+    padding: 40px;
 }
 
 .btn{
     margin: 10px;
-    padding: 10px 150px;
+    padding: 10px 100px;
     border: none;
+    background-color: orangered;
+    transition: all .5s;
     font-weight: bold;
     border-radius: 4px;
-    background-color: orangered;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    text-shadow: 0 0 3px gray;
+    font-size: x-large;
+    color: white;
+}
 
+.btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
