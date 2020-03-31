@@ -49,7 +49,7 @@ export function setCountDown(min, sec, callback) {
             
         }
 
-    }, 10);
+    }, 1000);
 
 }
 //------------------------------------

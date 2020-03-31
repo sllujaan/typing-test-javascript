@@ -21,12 +21,15 @@ body{
     font-weight: bolder;
     font-size: xx-large;
     color: gray;
+    text-shadow: 0 0 2px gray;
 }
 
 .score-board {
     background-color: palegreen;
     padding: 10px 100px;
     font-weight: bold;
+    font-size: 150px;
+    text-shadow: 0 0 2px gray;
 }
 
 .repeat {
@@ -45,6 +48,8 @@ button {
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    text-shadow: 0 0 3px gray;
+    font-size: x-large;
 }
 
 button:hover {

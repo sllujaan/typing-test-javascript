@@ -2,7 +2,7 @@
 import {setCountDown, timer_minute, timer_second} from './timer.js'
 
 
-//Reading parameter from url
+//Reading parameter from url---------------
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
 var test = urlParams.get('test')
@@ -143,7 +143,7 @@ document.addEventListener('keyup', (event) => {
     if(!countDownStarted) {
         setCountDown(minParam, 0, (done) => {
             if(done) {
-                var score = 0
+                var score = getNetWPM()
                 window.location = `../typingTest-finish-modules/typingTest-finish.html?score=${score}`
             }
         })
@@ -238,7 +238,9 @@ function handleClassesOnWrong(letter_active, letter_next) {
 
 function getNetWPM() {
     var letters_correct = document.getElementsByClassName("is-correct")
-    return letters_correct.length
+    var total = letters_correct.length
+    var wpm = [ (total / 5) / minParam]
+    return wpm
 }
 
 
@@ -323,6 +325,8 @@ function performAction(event) {
 function getLetterActiveYposition(letter_next) {
     return letter_next.getBoundingClientRect().y;
 }
+
+
 
 
 
