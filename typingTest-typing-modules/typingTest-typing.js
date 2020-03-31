@@ -1,6 +1,23 @@
 
 import {setCountDown, timer_minute, timer_second} from './timer.js'
 
+
+
+//Reading parameter from url
+var queryString = window.location.search
+var urlParams = new URLSearchParams(queryString)
+var test = urlParams.get('test')
+var minParam
+if(test) {
+    minParam = test
+    var minPad = String(minParam).padStart(2, 0)
+    timer_minute.innerText = minPad
+    timer_second.innerText = '00'
+}
+
+//---------------------------------------------
+
+
 var basic_word = document.getElementsByClassName("basic-word")[0]
 basic_word.children[0].classList.add("letter-next")
 
@@ -119,7 +136,7 @@ function setPrevLetter(callback) {
 document.addEventListener('keyup', (event) => {
 
     //Set CountDown---------------------------------
-    setCountDown(1, 59, (done) => {
+    setCountDown(minParam, 0, (done) => {
         if(done) console.log(done)
     })
     //-----------------------------
@@ -297,6 +314,12 @@ function getLetterActiveYposition(letter_next) {
 }
 
 
+var queryString = window.location.search
+var urlParams = new URLSearchParams(queryString)
+//console.log(urlParams.toString().split('&') )
+
+
+console.log( urlParams.get('test') )
 
 
 

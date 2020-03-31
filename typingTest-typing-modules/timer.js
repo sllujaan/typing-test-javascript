@@ -6,6 +6,7 @@ export var timer_minute = document.getElementsByClassName("minute")[0]
 export var timer_second = document.getElementsByClassName("second")[0]
 
 export function setCountDown(min, sec, callback) {
+    if(min <= 0) return
 
     var minPad = String(min).padStart(2, 0)
     var secPad = String(sec).padStart(2, 0)
@@ -35,7 +36,7 @@ export function setCountDown(min, sec, callback) {
         }
 
 
-        if( (min === 0) && (sec === 0) ) {
+        if( (min <= 0) && (sec <= 0) ) {
             if(callback) {
                 callback("done")
                 clearInterval(interval)
