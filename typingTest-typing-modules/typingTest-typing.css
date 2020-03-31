@@ -3,6 +3,7 @@
     --border-radius: 4px;
     --words-z-index: 10;
     --lines-z-index: 8;
+    --border-radius-box: 10px;
 }
 
 body{
@@ -20,6 +21,7 @@ h1{
     -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    border-radius: var(--border-radius-box);
 }
 
 
@@ -31,7 +33,7 @@ h1{
 }
 
 .timer{
-    background-color: darkorange;
+    background-color: orangered;
     padding: 10px;
     font-weight: bolder;
     border-radius: 4px;
@@ -43,16 +45,19 @@ h1{
 
 
 .basic-screen{
-    background-color: blueviolet;
-    height: 423px;
+    /*height: 423px;*/
+    height: 403px;
     padding: 10px;
     overflow: hidden;
     transition: all 1s;
+    border-radius: var(--border-radius-box);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
 }
 
 
 .basic-words-container{
-    background-color: lightseagreen;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +68,6 @@ h1{
 
 
 .basic-word{
-    background-color: brown;
     display: flex;
     margin: 0;
     padding-top: 10px;
@@ -73,13 +77,13 @@ h1{
 }
 
 .basic-letter {
-    background-color: goldenrod;
     padding: 10px;
     font-size: 150%;
     border-radius: var(--border-radius);
     position: relative;
     font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
     font-weight: normal;
+    text-shadow: 0 0 3px gray;
 }
 
 
@@ -104,8 +108,7 @@ h1{
 
 
 .letter-active{
-    color: gray;
-    background-color: green;
+    color: skyblue;
     border-bottom: 4px solid red;
     transition: all 1s;
     animation: letter-active-border-bottom 1s;
@@ -113,21 +116,23 @@ h1{
 }
 
 @keyframes letter-active-border-bottom {
-    0% {border-bottom: 4px solid green;}
-    100% {border-bottom: 4px solid red;}
+    0% {border-bottom: 4px solid white;}
+    100% {border-bottom: 4px solid skyblue;}
 }
 
 
 /*Wrong keyword css*/
 .is-wrong{
     color: red;
-    border-bottom: 4px solid red;
+    /*border-bottom: 4px solid red;*/
+    background-color: rgba(221, 69, 72, 0.1);
 }
 
 .is-wrong-animated {
     transition: all 1s;
     animation: is-wrong-animated .5s;
 }
+
 
 @keyframes is-wrong-animated {
     0% {transform: translateX(0px);}
@@ -144,6 +149,7 @@ h1{
 /*Correct keyword css*/
 .is-correct{
     color: green;
+    background-color: rgba(69, 221, 69, 0.1);
 }
 /*--------------------*/
 

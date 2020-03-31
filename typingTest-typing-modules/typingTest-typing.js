@@ -74,8 +74,6 @@ function setLetterActive_next() {
         letter_next.classList.add("letter-active")
         setNextLetter()
     }
-    
-
 }
 
 
@@ -222,17 +220,17 @@ document.addEventListener('keyup', (event) => {
 
 
 function handleClassesOnCorrect(letter_active, letter_next) {
-    letter_active.classList.remove("letter-active")
-    letter_active.classList.remove("is-wrong")
+    letter_active.classList.remove("is-wrong", "letter-active")
+    //letter_active.classList.remove("is-wrong")
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
 }
 
 function handleClassesOnWrong(letter_active, letter_next) {
-    letter_active.classList.remove("is-wrong-animated")
+    letter_active.classList.remove("is-correct", "is-wrong", "is-wrong-animated")
     void letter_active.offsetWidth
-    letter_active.classList.add("is-wrong")
-    letter_active.classList.add("is-wrong-animated")
+    letter_active.classList.add("is-wrong", "is-wrong-animated")
+    //letter_active.classList.add("is-wrong-animated")
 }
 
 
