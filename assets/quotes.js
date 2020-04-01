@@ -54,10 +54,10 @@ export function getQuotes() {
         generatedQuote += (tempRandQuote + ' ')
     })
     
-    var regex = /’/gi
-    generatedQuote.replace(regex, `'`)
-
-    return generatedQuote
+    var regex = /[’‘]/gi
+    console.log(regex)
+    var finalQuote = generatedQuote.replace(regex, `'`)
+    return finalQuote
     
 }
 
