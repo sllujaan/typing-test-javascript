@@ -4,6 +4,7 @@
     --words-z-index: 10;
     --lines-z-index: 8;
     --border-radius-box: 10px;
+    --app-color-consistent: orangered;
 }
 
 body{
@@ -12,9 +13,11 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 70vh;
+    user-select: none;
 }
 
 h1{
+    background-color: orangered;
     padding: 10px;
     text-align: center;
     margin: 10px;
