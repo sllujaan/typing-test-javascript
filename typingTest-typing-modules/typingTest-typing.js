@@ -88,39 +88,42 @@ function setPrevLetter(callback) {
         
         if(letter_active.parentElement === letter_next.parentElement) {
             letter_active.previousElementSibling.classList.add("letter-active")
-            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
+            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             
             letter_next.previousElementSibling.classList.add("letter-next")
-            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
+            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
+            handleBackspaceClasses(letter_active, letter_next)
             var success = 1
             if(callback) callback(success)
         }
         else{
-            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
+            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             letter_active.classList.add("letter-next")
             
-            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
+            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             letter_active.previousElementSibling.classList.add("letter-active")
 
             console.log("prev different parent-------------------------->>>>")
 
+            handleBackspaceClasses(letter_active, letter_next)
             var success = 1
             if(callback) callback(success)
         }
 
     }
     else if(letter_active.parentElement.previousElementSibling && letter_active.parentElement.previousElementSibling.classList.contains("basic-word")) {
-            letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
+            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             letter_active.classList.add("letter-next")
 
-            letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
+            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
 
-            console.log(letter_active.parentElement.previousElementSibling.lastElementChild)
+            //console.log(letter_active.parentElement.previousElementSibling.lastElementChild)
 
             letter_active.parentElement.previousElementSibling.lastElementChild.classList.add("letter-active")
 
             console.log("prev else>>>>>>>>>>>>>>>>")
 
+            handleBackspaceClasses(letter_active, letter_next)
             var success = 1
             if(callback) callback(success)
     }
@@ -132,6 +135,13 @@ function setPrevLetter(callback) {
     }
 }
 
+
+//handle classes when going back-----------------------------
+function handleBackspaceClasses(letter_active, letter_next) {
+    letter_active.classList.remove("letter-active", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+    letter_next.classList.remove("letter-next", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+}
+//-----------------------------------------------
 
 
 
@@ -219,18 +229,26 @@ document.addEventListener('keyup', (event) => {
 })
 
 
+
+
 function handleClassesOnCorrect(letter_active, letter_next) {
-    letter_active.classList.remove("is-wrong", "letter-active")
+    letter_active.classList.remove("is-wrong", "letter-active", "is-wrong-animated", "is-wrong-active-animated")
     //letter_active.classList.remove("is-wrong")
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
 }
 
 function handleClassesOnWrong(letter_active, letter_next) {
-    letter_active.classList.remove("is-correct", "is-wrong", "is-wrong-animated")
+    letter_active.classList.remove("is-correct", "is-wrong", "is-wrong-animated", "is-wrong-active-animated")
     void letter_active.offsetWidth
     letter_active.classList.add("is-wrong", "is-wrong-animated")
     //letter_active.classList.add("is-wrong-animated")
+    setTimeout(() => {
+        if (letter_active.classList.contains("letter-active")) {
+            letter_active.classList.add("is-wrong-active-animated")
+        }
+        
+    }, 1200);
 }
 
 
