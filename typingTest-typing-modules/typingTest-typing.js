@@ -1,5 +1,6 @@
 
 import {setCountDown, timer_minute, timer_second} from './timer.js'
+import {quote, getQuotes} from '../assets/quotes.js'
 
 
 //Reading parameter from url---------------
@@ -20,6 +21,43 @@ if(test) {
 //Setting Coutndown variable-------------------------
 var countDownStarted = false
 //-----------------------------------------------------
+
+
+//dynamically generating html content--------------------------------------------
+var basic_words_container =document.getElementsByClassName("basic-words-container")[0]
+var quoteWords = getQuotes().trim().split(' ')
+
+function generateWord(word) {
+    var basic_word = document.createElement('div')
+    basic_word.classList.add("basic-word")
+    
+    word.trim().split('').forEach(letter => {
+        basic_word.append(generateLetter(letter))
+    });
+
+    basic_word.append(generateLetter("&nbsp;"))
+    return basic_word
+}
+
+function generateLetter(letter) {
+    var basic_letter = document.createElement('div')
+    basic_letter.classList.add("basic-letter")
+    basic_letter.innerHTML = letter
+    return basic_letter
+}
+
+console.log(generateWord("hello"))
+
+quoteWords.forEach(word => {
+    basic_words_container.append(generateWord(word))
+})
+
+
+
+//-------------------------------------------------------------
+
+
+
 
 
 var basic_word = document.getElementsByClassName("basic-word")[0]
@@ -145,7 +183,7 @@ function handleBackspaceClasses(letter_active, letter_next) {
 
 
 
-document.addEventListener('keyup', (event) => {
+document.addEventListener('keydown', (event) => {
 
     //Set CountDown-------------------------------------
     if(!countDownStarted) {
@@ -255,7 +293,7 @@ function handleClassesOnWrong(letter_active, letter_next) {
 function getNetWPM() {
     var letters_correct = document.getElementsByClassName("is-correct")
     var total = letters_correct.length
-    var wpm = [ (total / 5) / minParam]
+    var wpm = [ (total / 4) / minParam]
     return wpm
 }
 

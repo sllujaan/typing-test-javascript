@@ -77,13 +77,17 @@ h1{
 }
 
 .basic-letter {
-    padding: 10px;
-    font-size: 150%;
+    color: dimgray;
+    padding: 10px 5px;
+    font-size: xx-large;
     border-radius: var(--border-radius);
     position: relative;
     font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+    /*
+    font-size: 150%;
+    font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
     font-weight: normal;
-    text-shadow: 0 0 3px gray;
+    text-shadow: 0 0 3px gray;*/
 }
 
 
@@ -95,7 +99,7 @@ h1{
     bottom: 0;
     right: 0;
     height: 100%;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid lightgray;
     overflow: visible;
     box-sizing: border-box;
     z-index: 1000;
