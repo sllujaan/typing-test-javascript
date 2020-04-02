@@ -200,6 +200,9 @@ document.addEventListener('keydown', (event) => {
 
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_next = document.getElementsByClassName("letter-next")[0]
+
+    var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
+    //console.log(letter_active_prev_position_y)
     /*
     var letter_active = document.getElementsByClassName("letter-next")[0]
     var word_current = letter_active.parentElement
@@ -227,8 +230,10 @@ document.addEventListener('keydown', (event) => {
         if(letter_active.innerText.trim() === event.key.trim()){
             console.log("correct.")
             setLetterActive_next()
-            handleClassesOnCorrect(letter_active, letter_next)
-            handleLinesTransform_upwards(letter_next)
+            handleClassesOnCorrect(letter_active, letter_next, (success) => {
+                if(success) handleLinesTransform_upwards(letter_active_prev_position_y)
+            })
+            
         }
         else{
             console.log("wrong.")
@@ -247,36 +252,31 @@ document.addEventListener('keydown', (event) => {
     //Backspace functionality---------------------------------------
     if(event.key === "Backspace") {
         console.log("nowwwww")
-        var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
+        //var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
         setPrevLetter((success)=> {
-            if (success) handleLinesTransform_downwards(letter_active, letter_active_prev_position_y)
+            if (success) handleLinesTransform_downwards(letter_active_prev_position_y)
         })
     }
     //-----------------------------------
-
-    //space comparison------------------------------
-    function isSpace(event, text) {
-        console.log(text)
-        if( (event.Code === "Space") && (text === "&npsp;") ) {
-            return true
-        }
-        return false
-    }
-    //--------------------------------------------
 
 })
 
 
 
 
-function handleClassesOnCorrect(letter_active, letter_next) {
+function handleClassesOnCorrect(letter_active, letter_next, callback) {
     letter_active.classList.remove("is-wrong", "letter-active", "is-wrong-animated", "is-wrong-active-animated")
     //letter_active.classList.remove("is-wrong")
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
+
+    setTimeout(() => {
+        var success = 1
+        if(callback) callback(success)
+    }, 100);
 }
 
-function handleClassesOnWrong(letter_active, letter_next) {
+function handleClassesOnWrong(letter_active, letter_next, callback) {
     letter_active.classList.remove("is-correct", "is-wrong", "is-wrong-animated", "is-wrong-active-animated")
     void letter_active.offsetWidth
     letter_active.classList.add("is-wrong", "is-wrong-animated")
@@ -290,46 +290,59 @@ function handleClassesOnWrong(letter_active, letter_next) {
 }
 
 
-function getNetWPM() {
-    var letters_correct = document.getElementsByClassName("is-correct")
-    var total = letters_correct.length
-    var wpm = [ (total / 4) / minParam]
-    return wpm
-}
+function handleLinesTransform_upwards(letter_active_prev_position_y) {
+    //var letter_active_current_position_y = getLetterActiveYposition(letter_next)
+    var letter_active = document.getElementsByClassName("letter-active")[0]
+    var letter_active_current_position_y = getLetterActiveYposition(letter_active)
+    
+    var diff = letter_active_current_position_y - letter_active_prev_position_y
+    
+    console.log(letter_active_prev_position_y)
+    console.log(letter_active_current_position_y)
+    console.log(diff)
 
-
-
-function handleLinesTransform_upwards(letter_next) {
-    var letter_active_current_position_y = getLetterActiveYposition(letter_next)
-    var diff = letter_active_current_position_y - letter_active_position_y
-
+    
     if(diff > 50) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             basic_words_container.style.setProperty("transform", "translateY(-101px)")
             //letter_active_position_y = letter_active_current_position_y
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
+            //console.log(letter_active_position_y, letter_active_current_position_y, diff)
         }
         else{
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
-            console.log("second transform")
+            //console.log(letter_active_position_y, letter_active_current_position_y, diff)
+            //console.log("second transform")
             basic_words_container.style.transform += "translateY(-81px)"
         }
     }
     else{
-        console.log(letter_active_position_y, letter_active_current_position_y, diff)
+        console.log(letter_active_prev_position_y, letter_active_current_position_y, diff)
     }
-    console.log(getLetterActiveYposition(letter_next))
+    
+    
 }
 
 
 
-function handleLinesTransform_downwards(letter_active, letter_active_prev_position_y) {
+function handleLinesTransform_downwards(letter_active_prev_position_y) {
+    
+    //var letter_active_current_position_y = getLetterActiveYposition(letter_active)
+    //var diff = letter_active_prev_position_y - letter_active_current_position_y
+    
+    var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_active_current_position_y = getLetterActiveYposition(letter_active)
-    var diff = letter_active_prev_position_y - letter_active_current_position_y
     
-    console.log("from downwards: ", letter_active_prev_position_y, letter_active_current_position_y, diff)
+    var diff = letter_active_current_position_y - letter_active_prev_position_y
     
-    if(diff < -2) {
+    console.log(letter_active_prev_position_y)
+    console.log(letter_active_current_position_y)
+    console.log(diff)
+    
+    
+    //console.log("from downwards: ", letter_active_prev_position_y, letter_active_current_position_y, diff)
+    
+    
+    
+    if(diff < -50) {
         basic_words_container.style.transform += "translateY(81px)"
     }
     
@@ -350,6 +363,14 @@ function handleLinesTransform_downwards(letter_active, letter_active_prev_positi
     else{
         console.log(letter_active_position_y, letter_active_current_position_y, diff)
     }*/
+}
+
+
+function getNetWPM() {
+    var letters_correct = document.getElementsByClassName("is-correct")
+    var total = letters_correct.length
+    var wpm = [ (total / 4) / minParam]
+    return wpm
 }
 
 
@@ -444,6 +465,31 @@ document.addEventListener('keyup', (event) => {
 })
 
 
+
+function handleLinesTransform_upwards(letter_next) {
+    var letter_active_current_position_y = getLetterActiveYposition(letter_next)
+    var diff = letter_active_current_position_y - letter_active_position_y
+    
+    console.log
+    console.log(getLetterActiveYposition(letter_next))
+
+    if(diff > 50) {
+        if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
+            basic_words_container.style.setProperty("transform", "translateY(-101px)")
+            //letter_active_position_y = letter_active_current_position_y
+            console.log(letter_active_position_y, letter_active_current_position_y, diff)
+        }
+        else{
+            console.log(letter_active_position_y, letter_active_current_position_y, diff)
+            console.log("second transform")
+            basic_words_container.style.transform += "translateY(-81px)"
+        }
+    }
+    else{
+        console.log(letter_active_position_y, letter_active_current_position_y, diff)
+    }
+    
+}
 
 
 
