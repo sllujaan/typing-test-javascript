@@ -15,6 +15,7 @@ body{
     min-height: 70vh;
     user-select: none;
     /*background-color: #ffde03;*/
+    font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
 }
 
 h1{
@@ -120,22 +121,29 @@ h1{
 
 
 .letter-active{
+    /*
     color: skyblue;
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid skyblue;
+    */
+    
+    color:#0336FF;
+    border-bottom: 4px solid #0336FF;
     /*transition: all .5s;*/
-    animation: letter-active-border-bottom .5s;
+    animation: letter-active-border-bottom 1s;
     animation-iteration-count: infinite;
+    font-weight: 900;
 }
+
 
 @keyframes letter-active-border-bottom {
     0% {border-bottom: 4px solid white;}
-    100% {border-bottom: 4px solid skyblue;}
+    100% {border-bottom: 4px solid #0336FF;}
 }
 
 
 /*Wrong keyword css*/
 .is-wrong{
-    color: red;
+    color:#FF0266;
     /*border-bottom: 4px solid red;*/
     background-color: rgba(221, 69, 72, 0.1);
 }
@@ -163,7 +171,7 @@ h1{
 
 @keyframes is-wrong-active-animated {
     0% {border-bottom: 4px solid white;}
-    100% {border-bottom: 4px solid red;}
+    100% {border-bottom: 4px solid #FF0266;;}
 }
 
 
@@ -173,8 +181,12 @@ h1{
 
 /*Correct keyword css*/
 .is-correct{
-    color: green;
-    background-color: rgba(69, 221, 69, 0.1);
+    
+    /*color: green;
+    background-color: rgba(69, 221, 69, 0.1);*/
+
+    color: #0336FF;;
+    background-color: rgba(3, 54, 255, 0.1);
 }
 /*--------------------*/
 

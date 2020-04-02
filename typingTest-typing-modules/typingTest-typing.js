@@ -125,7 +125,9 @@ function setPrevLetter(callback) {
     if(letter_active.previousElementSibling) {
         
         if(letter_active.parentElement === letter_next.parentElement) {
+
             letter_active.previousElementSibling.classList.add("letter-active")
+            
             //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             
             letter_next.previousElementSibling.classList.add("letter-next")
@@ -178,6 +180,14 @@ function setPrevLetter(callback) {
 function handleBackspaceClasses(letter_active, letter_next) {
     letter_active.classList.remove("letter-active", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
     letter_next.classList.remove("letter-next", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+
+    if(letter_active.previousElementSibling) {
+        letter_active.previousElementSibling.classList.remove("is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+    }
+    else if(letter_active.parentElement.previousElementSibling){
+        letter_active.parentElement.previousElementSibling.lastElementChild.classList.remove("is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+    }
+    
 }
 //-----------------------------------------------
 
@@ -231,7 +241,9 @@ document.addEventListener('keydown', (event) => {
             console.log("correct.")
             setLetterActive_next()
             handleClassesOnCorrect(letter_active, letter_next, (success) => {
-                if(success) handleLinesTransform_upwards(letter_active_prev_position_y)
+                if(success) {
+                    handleLinesTransform_upwards(letter_active_prev_position_y)
+                }
             })
             
         }
@@ -281,12 +293,13 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
     void letter_active.offsetWidth
     letter_active.classList.add("is-wrong", "is-wrong-animated")
     //letter_active.classList.add("is-wrong-animated")
-    setTimeout(() => {
+    
+    /*setTimeout(() => {
         if (letter_active.classList.contains("letter-active")) {
             letter_active.classList.add("is-wrong-active-animated")
         }
         
-    }, 1200);
+    }, 1200);*/
 }
 
 
@@ -311,8 +324,8 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
         else{
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
             //console.log("second transform")
-            basic_words_container.classList.remove("transform")
-            basic_words_container.style.transform = "translateY(-81px)"
+            //basic_words_container.classList.remove("transform")
+            basic_words_container.style.transform += "translateY(-81px)"
             //basic_words_container.style.transform += "translateY(-81px)"
         }
     }
@@ -402,7 +415,6 @@ function performAction(event) {
 function getLetterActiveYposition(letter_next) {
     return letter_next.getBoundingClientRect().y;
 }
-
 
 
 
