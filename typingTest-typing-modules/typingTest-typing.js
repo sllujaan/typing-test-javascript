@@ -311,7 +311,9 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
         else{
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
             //console.log("second transform")
-            basic_words_container.style.transform += "translateY(-81px)"
+            basic_words_container.classList.remove("transform")
+            basic_words_container.style.transform = "translateY(-81px)"
+            //basic_words_container.style.transform += "translateY(-81px)"
         }
     }
     else{

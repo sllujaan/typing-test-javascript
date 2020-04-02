@@ -14,10 +14,13 @@ body{
     align-items: center;
     min-height: 70vh;
     user-select: none;
+    /*background-color: #ffde03;*/
 }
 
 h1{
-    background-color: orangered;
+    /*background-color: orangered;*/
+    background-color: #0336FF;
+    color: white;
     padding: 10px;
     text-align: center;
     margin: 10px;
@@ -36,7 +39,8 @@ h1{
 }
 
 .timer{
-    background-color: orangered;
+     /*background-color: orangered;*/
+     background-color: #FF0266;
     padding: 10px;
     font-weight: bolder;
     border-radius: 4px;
@@ -57,6 +61,7 @@ h1{
     -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    background-color: white;
 }
 
 

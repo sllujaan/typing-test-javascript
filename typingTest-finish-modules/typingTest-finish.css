@@ -7,10 +7,13 @@ body{
     font-size: x-large;
     margin-top: 38px;
     user-select: none;
+    font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
 }
 
 h1{
-    background-color: orangered;
+    background-color: #0336FF;
+    text-shadow: 0 0 2px white;
+    color: white;
     padding: 10px;
     text-align: center;
     margin: 10px;
@@ -61,7 +64,8 @@ h1{
 button {
     padding: 10px 100px;
     border: none;
-    background-color: orangered;
+    background-color: #FF0266;
+    color: black;
     transition: all .5s;
     font-weight: bold;
     border-radius: 4px;
@@ -69,9 +73,9 @@ button {
     -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    text-shadow: 0 0 3px gray;
+    text-shadow: 0 0 1px black;
     font-size: x-large;
-    color: white;
+    font-family: inherit;
 }
 
 button:hover {
