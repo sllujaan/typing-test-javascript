@@ -22,6 +22,8 @@ if(test) {
 var countDownStarted = false
 //-----------------------------------------------------
 
+var transform = 0
+
 
 //dynamically generating html content--------------------------------------------
 var basic_words_container =document.getElementsByClassName("basic-words-container")[0]
@@ -294,12 +296,14 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
     letter_active.classList.add("is-wrong", "is-wrong-animated")
     //letter_active.classList.add("is-wrong-animated")
     
-    /*setTimeout(() => {
-        if (letter_active.classList.contains("letter-active")) {
-            letter_active.classList.add("is-wrong-active-animated")
+    setTimeout(() => {
+        var letter_active = document.getElementsByClassName("letter-active")[0]
+
+        if (letter_active.classList.contains("is-wrong")) {
+            letter_active.classList.remove("is-wrong", "is-wrong-animated")
         }
         
-    }, 1200);*/
+    }, 500);
 }
 
 
@@ -317,7 +321,10 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
     
     if(diff > 50) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
-            basic_words_container.style.setProperty("transform", "translateY(-101px)")
+            
+            transform -= 101
+            void basic_words_container.offsetWidth
+            basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             //letter_active_position_y = letter_active_current_position_y
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
         }
@@ -325,7 +332,10 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
             //console.log("second transform")
             //basic_words_container.classList.remove("transform")
-            basic_words_container.style.transform += "translateY(-81px)"
+            transform -= 81
+            void basic_words_container.offsetWidth
+            basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
+            //basic_words_container.style.transform = "translateY(-81px)"
             //basic_words_container.style.transform += "translateY(-81px)"
         }
     }
@@ -358,7 +368,9 @@ function handleLinesTransform_downwards(letter_active_prev_position_y) {
     
     
     if(diff < -50) {
-        basic_words_container.style.transform += "translateY(81px)"
+        transform += 81
+        void basic_words_container.offsetWidth
+        basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
     }
     
     

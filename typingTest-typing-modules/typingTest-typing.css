@@ -73,6 +73,7 @@ h1{
     overflow: hidden;
     position: relative;
     transition: all .2s;
+    will-change: transform;
 }
 
 
