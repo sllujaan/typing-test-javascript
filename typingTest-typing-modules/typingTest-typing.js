@@ -13,6 +13,8 @@ if(test) {
     var minPad = String(minParam).padStart(2, 0)
     timer_minute.innerText = minPad
     timer_second.innerText = '00'
+}else{
+    minParam = 1
 }
 
 //---------------------------------------------
@@ -322,7 +324,7 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
     if(diff > 50) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             
-            transform -= 101
+            transform -= 100
             void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             //letter_active_position_y = letter_active_current_position_y
@@ -332,7 +334,7 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
             //console.log("second transform")
             //basic_words_container.classList.remove("transform")
-            transform -= 81
+            transform -= 77
             void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             //basic_words_container.style.transform = "translateY(-81px)"
