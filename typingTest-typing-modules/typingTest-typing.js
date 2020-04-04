@@ -276,13 +276,17 @@ document.addEventListener('keydown', (event) => {
     }
     //-----------------------------------
 
+    setTimeout(() => {
+        animateLetterAcitve()
+    }, 1000);
+
 })
 
 
 
 
 function handleClassesOnCorrect(letter_active, letter_next, callback) {
-    letter_active.classList.remove("is-wrong", "letter-active", "is-wrong-animated", "is-wrong-active-animated")
+    letter_active.classList.remove("is-wrong", "letter-active", "letter-active-animated", "is-wrong-animated", "is-wrong-active-animated")
     //letter_active.classList.remove("is-wrong")
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
@@ -305,6 +309,12 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
         if (letter_active.classList.contains("is-wrong")) {
             letter_active.classList.remove("is-wrong", "is-wrong-animated")
         }
+
+        var letter_wrong = document.getElementsByClassName("is-wrong")
+        console.log(letter_wrong)
+        for(var i=0; i<letter_wrong.length; i++) {
+            letter_wrong[i].classList.remove("is-wrong-animated", "letter-active-animated")
+        }
         
     }, 500);
 }
@@ -326,11 +336,14 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
     
     if(diff > 70) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
+            var basic_screen = document.getElementsByClassName("basic-screen")[0]
+            
             
 
             transform -= 100
             //void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
+            basic_screen.style.setProperty("height", "360px")
             //letter_active_position_y = letter_active_current_position_y
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
         }
@@ -441,6 +454,14 @@ var letter_active = document.getElementsByClassName("letter-active")[0]
 first_line_y_client = getLetterActiveYposition(letter_active)
 console.log(first_line_y_client)
 //---------------------------------------------------------------
+
+
+function animateLetterAcitve() {
+    var letter_active = document.getElementsByClassName("letter-active")[0]
+    if (letter_active) letter_active.classList.add("letter-active-animated")
+}
+animateLetterAcitve()
+
 
 
 /*

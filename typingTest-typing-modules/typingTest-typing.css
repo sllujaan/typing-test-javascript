@@ -54,7 +54,8 @@ h1{
 
 .basic-screen{
     /*height: 423px;*/
-    height: 403px;
+    /*height: 403px;*/
+    height: 380px;
     padding: 10px;
     overflow: hidden;
     /*transition: all .5s;*/
@@ -130,9 +131,14 @@ h1{
     color:#0336FF;
     border-bottom: 4px solid #0336FF;
     /*transition: all .5s;*/
+    /*animation: letter-active-border-bottom 1s;
+    animation-iteration-count: infinite;*/
+    font-weight: 900;
+}
+
+.letter-active-animated {
     animation: letter-active-border-bottom 1s;
     animation-iteration-count: infinite;
-    font-weight: 900;
 }
 
 
@@ -151,6 +157,7 @@ h1{
 
 .is-wrong-animated {
     /*transition: all .5s;*/ 
+    border-bottom: 4px solid #FF0266;
     animation: is-wrong-animated .2s;
 }
 
@@ -187,7 +194,7 @@ h1{
     background-color: rgba(69, 221, 69, 0.1);*/
 
     color: #0336FF;;
-    background-color: rgba(3, 54, 255, 0.1);
+    background-color: rgba(3, 54, 255, 0.05);
 }
 /*--------------------*/
 
