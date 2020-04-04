@@ -25,6 +25,7 @@ var countDownStarted = false
 //-----------------------------------------------------
 
 var transform = 0
+var first_line_y_client = 0
 
 
 //dynamically generating html content--------------------------------------------
@@ -63,7 +64,6 @@ quoteWords.forEach(word => {
 
 
 
-
 var basic_word = document.getElementsByClassName("basic-word")[0]
 basic_word.children[0].classList.add("letter-next")
 
@@ -76,6 +76,7 @@ console.log(basic_words_container_compStyles.getPropertyValue("transform"))
 setLetterActive_next()
 
 var letter_active_position_y = getLetterActiveYposition(basic_word.children[0])
+
 
 
 
@@ -314,18 +315,21 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_active_current_position_y = getLetterActiveYposition(letter_active)
     
-    var diff = letter_active_current_position_y - letter_active_prev_position_y
+    //var diff = letter_active_current_position_y - letter_active_prev_position_y
+
+    var diff = letter_active_current_position_y - first_line_y_client
     
-    console.log(letter_active_prev_position_y)
+    console.log(first_line_y_client)
     console.log(letter_active_current_position_y)
-    console.log(diff)
+    first_line_y_client = letter_active_current_position_y
 
     
-    if(diff > 50) {
+    if(diff > 70) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             
+
             transform -= 100
-            void basic_words_container.offsetWidth
+            //void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             //letter_active_position_y = letter_active_current_position_y
             //console.log(letter_active_position_y, letter_active_current_position_y, diff)
@@ -335,7 +339,7 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
             //console.log("second transform")
             //basic_words_container.classList.remove("transform")
             transform -= 77
-            void basic_words_container.offsetWidth
+            //void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             //basic_words_container.style.transform = "translateY(-81px)"
             //basic_words_container.style.transform += "translateY(-81px)"
@@ -358,20 +362,20 @@ function handleLinesTransform_downwards(letter_active_prev_position_y) {
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_active_current_position_y = getLetterActiveYposition(letter_active)
     
-    var diff = letter_active_current_position_y - letter_active_prev_position_y
+    //var diff = letter_active_current_position_y - letter_active_prev_position_y
+    var diff = letter_active_current_position_y - first_line_y_client
     
-    console.log(letter_active_prev_position_y)
+    console.log(first_line_y_client)
     console.log(letter_active_current_position_y)
-    console.log(diff)
-    
+    first_line_y_client = letter_active_current_position_y
     
     //console.log("from downwards: ", letter_active_prev_position_y, letter_active_current_position_y, diff)
     
     
     
-    if(diff < -50) {
-        transform += 81
-        void basic_words_container.offsetWidth
+    if(diff < -70) {
+        transform += 77
+        //void basic_words_container.offsetWidth
         basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
     }
     
@@ -432,6 +436,11 @@ function getLetterActiveYposition(letter_next) {
 
 
 
+//letters y client calculations--------------------------------------
+var letter_active = document.getElementsByClassName("letter-active")[0]
+first_line_y_client = getLetterActiveYposition(letter_active)
+console.log(first_line_y_client)
+//---------------------------------------------------------------
 
 
 /*
