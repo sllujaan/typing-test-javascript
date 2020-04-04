@@ -55,12 +55,12 @@ export function getQuotes() {
     })
     
     var regex = /[’‘]/gi
-    console.log(regex)
+    
     var finalQuote = generatedQuote.replace(regex, `'`)
     return finalQuote
     
 }
 
 
-console.log(getQuotes())
+
 

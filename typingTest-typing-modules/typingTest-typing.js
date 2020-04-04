@@ -9,7 +9,7 @@ var urlParams = new URLSearchParams(queryString)
 var test = parseInt(urlParams.get('test'))
 var minParam
 
-console.log(test)
+ 
 
 if (test && ( (typeof test !== 'number') || test < 1 ) ) test = 1
 if (test && test > 10) test = 10
@@ -58,7 +58,7 @@ function generateLetter(letter) {
     return basic_letter
 }
 
-console.log(generateWord("hello"))
+ 
 
 quoteWords.forEach(word => {
     basic_words_container.append(generateWord(word))
@@ -76,9 +76,9 @@ basic_word.children[0].classList.add("letter-next")
 
 var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
 var basic_words_container_compStyles = window.getComputedStyle(basic_words_container)
-console.log(basic_words_container_compStyles)
+ 
 
-console.log(basic_words_container_compStyles.getPropertyValue("transform"))
+ 
 
 setLetterActive_next()
 
@@ -103,10 +103,10 @@ function setNextLetter() {
     }
     else{
         var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
-        console.log(basic_words_container.lastElementChild.lastElementChild)
+         
 
-        console.log("final stage-------------;;;;;;;;;;;;;;;;;;;;;;;;;")
-        console.log(getNetWPM())
+         
+         
     }
 }
 
@@ -131,8 +131,8 @@ function setPrevLetter(callback) {
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_next = document.getElementsByClassName("letter-next")[0]
 
-    console.log(letter_active)
-    console.log(letter_next)
+     
+     
 
     if(letter_active.previousElementSibling) {
         
@@ -155,7 +155,7 @@ function setPrevLetter(callback) {
             //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             letter_active.previousElementSibling.classList.add("letter-active")
 
-            console.log("prev different parent-------------------------->>>>")
+             
 
             handleBackspaceClasses(letter_active, letter_next)
             var success = 1
@@ -169,18 +169,18 @@ function setPrevLetter(callback) {
 
             //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
 
-            //console.log(letter_active.parentElement.previousElementSibling.lastElementChild)
+            // 
 
             letter_active.parentElement.previousElementSibling.lastElementChild.classList.add("letter-active")
 
-            console.log("prev else>>>>>>>>>>>>>>>>")
+             
 
             handleBackspaceClasses(letter_active, letter_next)
             var success = 1
             if(callback) callback(success)
     }
     else {
-        console.log("prev end-------------------------->>>>")
+         
 
         var success = 1
         if(callback) callback(success)
@@ -228,7 +228,7 @@ document.addEventListener('keydown', (event) => {
     var letter_next = document.getElementsByClassName("letter-next")[0]
 
     var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
-    //console.log(letter_active_prev_position_y)
+    // 
     /*
     var letter_active = document.getElementsByClassName("letter-next")[0]
     var word_current = letter_active.parentElement
@@ -240,21 +240,21 @@ document.addEventListener('keydown', (event) => {
     else{
         
         current_word = current_word.nextElementSibling
-        console.log(current_word)
+         
         letter_active = current_word.children[0]
         next_letter = letter_active.nextElementSibling
 
-        console.log(letter_active)
-        console.log(next_letter)
+         
+         
         
     }*/
 
-    console.log(letter_active.innerText)
-    console.log(event.key)
+     
+     
     //Normal next functionality---------------
     if((event.key !== "Shift") && (event.key !== "Backspace")) {
         if(letter_active.innerText.trim() === event.key.trim()){
-            console.log("correct.")
+             
             setLetterActive_next()
             handleClassesOnCorrect(letter_active, letter_next, (success) => {
                 if(success) {
@@ -264,7 +264,7 @@ document.addEventListener('keydown', (event) => {
             
         }
         else{
-            console.log("wrong.")
+             
             if(letter_active.previousElementSibling && letter_active.previousElementSibling.classList.contains("is-correct")) {
                 setLetterActive_next()
             }
@@ -279,7 +279,7 @@ document.addEventListener('keydown', (event) => {
 
     //Backspace functionality---------------------------------------
     if(event.key === "Backspace") {
-        console.log("nowwwww")
+         
         //var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
         setPrevLetter((success)=> {
             if (success) handleLinesTransform_downwards(letter_active_prev_position_y)
@@ -320,7 +320,7 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
         }
 
         var letter_wrong = document.getElementsByClassName("is-wrong")
-        console.log(letter_wrong)
+         
         for(var i=0; i<letter_wrong.length; i++) {
             letter_wrong[i].classList.remove("is-wrong-animated", "letter-active-animated")
         }
@@ -338,8 +338,8 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
 
     var diff = letter_active_current_position_y - first_line_y_client
     
-    console.log(first_line_y_client)
-    console.log(letter_active_current_position_y)
+     
+     
     first_line_y_client = letter_active_current_position_y
 
     
@@ -354,11 +354,11 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             basic_screen.style.setProperty("height", "360px")
             //letter_active_position_y = letter_active_current_position_y
-            //console.log(letter_active_position_y, letter_active_current_position_y, diff)
+            // 
         }
         else{
-            //console.log(letter_active_position_y, letter_active_current_position_y, diff)
-            //console.log("second transform")
+            // 
+            // 
             //basic_words_container.classList.remove("transform")
             transform -= 77
             //void basic_words_container.offsetWidth
@@ -368,7 +368,7 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
         }
     }
     else{
-        console.log(letter_active_prev_position_y, letter_active_current_position_y, diff)
+         
     }
     
     
@@ -387,11 +387,11 @@ function handleLinesTransform_downwards(letter_active_prev_position_y) {
     //var diff = letter_active_current_position_y - letter_active_prev_position_y
     var diff = letter_active_current_position_y - first_line_y_client
     
-    console.log(first_line_y_client)
-    console.log(letter_active_current_position_y)
+     
+     
     first_line_y_client = letter_active_current_position_y
     
-    //console.log("from downwards: ", letter_active_prev_position_y, letter_active_current_position_y, diff)
+    // 
     
     
     
@@ -407,16 +407,16 @@ function handleLinesTransform_downwards(letter_active_prev_position_y) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             basic_words_container.style.setProperty("transform", "translateY(-101px)")
             //letter_active_position_y = letter_active_current_position_y
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
+             
         }
         else{
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
-            console.log("second transform")
+             
+             
             basic_words_container.style.transform += "translateY(-81px)"
         }
     }
     else{
-        console.log(letter_active_position_y, letter_active_current_position_y, diff)
+         
     }*/
 }
 
@@ -435,13 +435,13 @@ function getNetWPM() {
 function performAction(event) {
     if(event.key !== "Shift") {
         if(letter_active.innerText === event.key){
-            console.log("correct.")
+             
             letter_active.classList.remove("letter-active")
             letter_active.classList.add("is-correct")
             next_letter.classList.add("letter-active")
         }
         else{
-            console.log("wrong.")
+             
             letter_active.classList.remove("is-wrong-animated")
             void letter_active.offsetWidth
             letter_active.classList.add("is-wrong")
@@ -461,7 +461,7 @@ function getLetterActiveYposition(letter_next) {
 //letters y client calculations--------------------------------------
 var letter_active = document.getElementsByClassName("letter-active")[0]
 first_line_y_client = getLetterActiveYposition(letter_active)
-console.log(first_line_y_client)
+ 
 //---------------------------------------------------------------
 
 
@@ -475,7 +475,7 @@ animateLetterAcitve()
 
 
 function onTypingStop() {
-    console.log("stoped typing..............")
+     
     animateLetterAcitve()
 }
 
@@ -483,10 +483,10 @@ function onTypingStop() {
 /*
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
-//console.log(urlParams.toString().split('&') )
+// 
 
 
-console.log( urlParams.get('test') )
+ 
 */
 
 
@@ -497,36 +497,36 @@ var pragraph = "this is a random paragraph."
 
 var words = pragraph.split(' ')
 
-console.log(words)
+ 
 
 var basic_word = words[0].split('')
 basic_word.push(' ')
 
 
-console.log(basic_word)
+ 
 
 
 
 
 var basic_words = document.getElementsByClassName("basic-word")[0]
-console.log(basic_words)
+ 
 
 
 document.addEventListener('keyup', (event) => {
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var basic_word = letter_active.parentElement
     var next_letter = letter_active.nextElementSibling
-    console.log(basic_word)
-    console.log(next_letter)
+     
+     
     if(event.key !== "Shift") {
         if(letter_active.innerText === event.key){
-            console.log("correct.")
+             
             letter_active.classList.remove("letter-active")
             letter_active.classList.add("is-correct")
             next_letter.classList.add("letter-active")
         }
         else{
-            console.log("wrong.")
+             
             letter_active.classList.remove("is-wrong-animated")
             void letter_active.offsetWidth
             letter_active.classList.add("is-wrong")
@@ -534,8 +534,8 @@ document.addEventListener('keyup', (event) => {
         }
     }
     
-    console.log(letter_active)
-    console.log(event)
+     
+     
 })
 
 
@@ -545,22 +545,22 @@ function handleLinesTransform_upwards(letter_next) {
     var diff = letter_active_current_position_y - letter_active_position_y
     
     console.log
-    console.log(getLetterActiveYposition(letter_next))
+     
 
     if(diff > 50) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             basic_words_container.style.setProperty("transform", "translateY(-101px)")
             //letter_active_position_y = letter_active_current_position_y
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
+             
         }
         else{
-            console.log(letter_active_position_y, letter_active_current_position_y, diff)
-            console.log("second transform")
+             
+             
             basic_words_container.style.transform += "translateY(-81px)"
         }
     }
     else{
-        console.log(letter_active_position_y, letter_active_current_position_y, diff)
+         
     }
     
 }

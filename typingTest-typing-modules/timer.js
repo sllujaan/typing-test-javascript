@@ -17,7 +17,7 @@ export function setCountDown(min, sec, callback) {
     timer_second.innerText = secPad
 
 
-    console.log(timer_minute, timer_second)
+    
 
     var interval =  setInterval(() => {
 
@@ -42,11 +42,11 @@ export function setCountDown(min, sec, callback) {
             if(callback) {
                 callback("done")
                 clearInterval(interval)
-                console.log("interval cleared in after callback")
+                
             }
             else{
                 clearInterval(interval)
-                console.log("interval cleared in without callback")
+                
             }
             
         }
