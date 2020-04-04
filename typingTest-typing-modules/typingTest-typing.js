@@ -64,11 +64,7 @@ quoteWords.forEach(word => {
     basic_words_container.append(generateWord(word))
 })
 
-
-
 //-------------------------------------------------------------
-
-
 
 
 var basic_word = document.getElementsByClassName("basic-word")[0]
@@ -77,14 +73,7 @@ basic_word.children[0].classList.add("letter-next")
 var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
 var basic_words_container_compStyles = window.getComputedStyle(basic_words_container)
  
-
- 
-
 setLetterActive_next()
-
-var letter_active_position_y = getLetterActiveYposition(basic_word.children[0])
-
-
 
 
 function setNextLetter() {
@@ -100,13 +89,6 @@ function setNextLetter() {
         var current_word = letter_next.parentElement
         current_word = current_word.nextElementSibling
         current_word.children[0].classList.add("letter-next")
-    }
-    else{
-        var basic_words_container = document.getElementsByClassName("basic-words-container")[0]
-         
-
-         
-         
     }
 }
 
@@ -140,19 +122,14 @@ function setPrevLetter(callback) {
 
             letter_active.previousElementSibling.classList.add("letter-active")
             
-            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
-            
             letter_next.previousElementSibling.classList.add("letter-next")
-            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             handleBackspaceClasses(letter_active, letter_next)
             var success = 1
             if(callback) callback(success)
         }
         else{
-            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
             letter_active.classList.add("letter-next")
             
-            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
             letter_active.previousElementSibling.classList.add("letter-active")
 
              
@@ -164,12 +141,8 @@ function setPrevLetter(callback) {
 
     }
     else if(letter_active.parentElement.previousElementSibling && letter_active.parentElement.previousElementSibling.classList.contains("basic-word")) {
-            //letter_next.classList.remove("letter-next", "is-wrong", "is-correct")
+
             letter_active.classList.add("letter-next")
-
-            //letter_active.classList.remove("letter-active", "is-wrong", "is-correct")
-
-            // 
 
             letter_active.parentElement.previousElementSibling.lastElementChild.classList.add("letter-active")
 
@@ -228,27 +201,7 @@ document.addEventListener('keydown', (event) => {
     var letter_next = document.getElementsByClassName("letter-next")[0]
 
     var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
-    // 
-    /*
-    var letter_active = document.getElementsByClassName("letter-next")[0]
-    var word_current = letter_active.parentElement
-    var letter_next
-
-    if(letter_active.nextElementSibling) {
-        letter_next = letter_active.nextElementSibling
-    }
-    else{
-        
-        current_word = current_word.nextElementSibling
-         
-        letter_active = current_word.children[0]
-        next_letter = letter_active.nextElementSibling
-
-         
-         
-        
-    }*/
-
+   
      
      
     //Normal next functionality---------------
@@ -279,8 +232,6 @@ document.addEventListener('keydown', (event) => {
 
     //Backspace functionality---------------------------------------
     if(event.key === "Backspace") {
-         
-        //var letter_active_prev_position_y = getLetterActiveYposition(letter_active)
         setPrevLetter((success)=> {
             if (success) handleLinesTransform_downwards(letter_active_prev_position_y)
         })
@@ -296,7 +247,7 @@ document.addEventListener('keydown', (event) => {
 
 function handleClassesOnCorrect(letter_active, letter_next, callback) {
     letter_active.classList.remove("is-wrong", "letter-active", "letter-active-animated", "is-wrong-animated", "is-wrong-active-animated")
-    //letter_active.classList.remove("is-wrong")
+
     letter_active.classList.add("is-correct")
     letter_next.classList.add("letter-active")
 
@@ -310,7 +261,6 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
     letter_active.classList.remove("is-correct", "is-wrong", "is-wrong-animated", "is-wrong-active-animated")
     void letter_active.offsetWidth
     letter_active.classList.add("is-wrong", "is-wrong-animated")
-    //letter_active.classList.add("is-wrong-animated")
     
     setTimeout(() => {
         var letter_active = document.getElementsByClassName("letter-active")[0]
@@ -329,20 +279,14 @@ function handleClassesOnWrong(letter_active, letter_next, callback) {
 }
 
 
-function handleLinesTransform_upwards(letter_active_prev_position_y) {
-    //var letter_active_current_position_y = getLetterActiveYposition(letter_next)
+function handleLinesTransform_upwards() {
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_active_current_position_y = getLetterActiveYposition(letter_active)
-    
-    //var diff = letter_active_current_position_y - letter_active_prev_position_y
 
     var diff = letter_active_current_position_y - first_line_y_client
     
-     
-     
     first_line_y_client = letter_active_current_position_y
-
-    
+  
     if(diff > 70) {
         if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
             var basic_screen = document.getElementsByClassName("basic-screen")[0]
@@ -350,74 +294,35 @@ function handleLinesTransform_upwards(letter_active_prev_position_y) {
             
 
             transform -= 100
-            //void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
             basic_screen.style.setProperty("height", "360px")
-            //letter_active_position_y = letter_active_current_position_y
-            // 
         }
         else{
-            // 
-            // 
-            //basic_words_container.classList.remove("transform")
             transform -= 77
-            //void basic_words_container.offsetWidth
             basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
-            //basic_words_container.style.transform = "translateY(-81px)"
-            //basic_words_container.style.transform += "translateY(-81px)"
         }
     }
     else{
          
-    }
-    
-    
+    }  
 }
 
 
 
-function handleLinesTransform_downwards(letter_active_prev_position_y) {
-    
-    //var letter_active_current_position_y = getLetterActiveYposition(letter_active)
-    //var diff = letter_active_prev_position_y - letter_active_current_position_y
+function handleLinesTransform_downwards() {
     
     var letter_active = document.getElementsByClassName("letter-active")[0]
     var letter_active_current_position_y = getLetterActiveYposition(letter_active)
     
-    //var diff = letter_active_current_position_y - letter_active_prev_position_y
     var diff = letter_active_current_position_y - first_line_y_client
-    
-     
-     
+      
     first_line_y_client = letter_active_current_position_y
-    
-    // 
-    
-    
-    
+
     if(diff < -70) {
         transform += 77
-        //void basic_words_container.offsetWidth
         basic_words_container.style.setProperty("transform", `translateY(${transform}px)`)
     }
     
-    
-    /*
-    if(diff > 50) {
-        if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
-            basic_words_container.style.setProperty("transform", "translateY(-101px)")
-            //letter_active_position_y = letter_active_current_position_y
-             
-        }
-        else{
-             
-             
-            basic_words_container.style.transform += "translateY(-81px)"
-        }
-    }
-    else{
-         
-    }*/
 }
 
 
@@ -428,28 +333,6 @@ function getNetWPM() {
     return wpm
 }
 
-
-
-
-/*
-function performAction(event) {
-    if(event.key !== "Shift") {
-        if(letter_active.innerText === event.key){
-             
-            letter_active.classList.remove("letter-active")
-            letter_active.classList.add("is-correct")
-            next_letter.classList.add("letter-active")
-        }
-        else{
-             
-            letter_active.classList.remove("is-wrong-animated")
-            void letter_active.offsetWidth
-            letter_active.classList.add("is-wrong")
-            letter_active.classList.add("is-wrong-animated")
-        }
-    }
-}
-*/
 
 
 function getLetterActiveYposition(letter_next) {
@@ -479,93 +362,3 @@ function onTypingStop() {
     animateLetterAcitve()
 }
 
-
-/*
-var queryString = window.location.search
-var urlParams = new URLSearchParams(queryString)
-// 
-
-
- 
-*/
-
-
-
-
-/*
-var pragraph = "this is a random paragraph."
-
-var words = pragraph.split(' ')
-
- 
-
-var basic_word = words[0].split('')
-basic_word.push(' ')
-
-
- 
-
-
-
-
-var basic_words = document.getElementsByClassName("basic-word")[0]
- 
-
-
-document.addEventListener('keyup', (event) => {
-    var letter_active = document.getElementsByClassName("letter-active")[0]
-    var basic_word = letter_active.parentElement
-    var next_letter = letter_active.nextElementSibling
-     
-     
-    if(event.key !== "Shift") {
-        if(letter_active.innerText === event.key){
-             
-            letter_active.classList.remove("letter-active")
-            letter_active.classList.add("is-correct")
-            next_letter.classList.add("letter-active")
-        }
-        else{
-             
-            letter_active.classList.remove("is-wrong-animated")
-            void letter_active.offsetWidth
-            letter_active.classList.add("is-wrong")
-            letter_active.classList.add("is-wrong-animated")
-        }
-    }
-    
-     
-     
-})
-
-
-
-function handleLinesTransform_upwards(letter_next) {
-    var letter_active_current_position_y = getLetterActiveYposition(letter_next)
-    var diff = letter_active_current_position_y - letter_active_position_y
-    
-    console.log
-     
-
-    if(diff > 50) {
-        if(basic_words_container_compStyles.getPropertyValue("transform") === "none") {
-            basic_words_container.style.setProperty("transform", "translateY(-101px)")
-            //letter_active_position_y = letter_active_current_position_y
-             
-        }
-        else{
-             
-             
-            basic_words_container.style.transform += "translateY(-81px)"
-        }
-    }
-    else{
-         
-    }
-    
-}
-
-
-
-
-*/
