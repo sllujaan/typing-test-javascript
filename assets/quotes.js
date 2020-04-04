@@ -4,16 +4,16 @@ export var quote = [`
 So we’re driving along, a road in the middle of nowhere, a few trees now and then on each side of the road, mountains in the distance, there hasn’t been a town for ages and then you see this sign, not really a proper sign at all, just a piece of card with some words scribbled on it: ‘Bungee Jumping, 5km’, and an arrow pointing to the left. I can’t even see a road going left, and there’s certainly no sign of any bungee jumping, but you insist, the idea has taken you, you’re crazy about it, you’ve always wanted to do bungee jumping. I know, you think I’m boring because I don’t want to go.`, 
 
 
-`‘Go on!’ you insist. ‘We don’t even have to do the bungee jumping, we can just go there and see what’s happening. It’ll be interesting!’ As usual, you get your way. I give in and off we go along this dirt road, for what seems much more than five kilometres to me. But then, after driving for ages, suddenly, out of nowhere, some trees appear, like a small wood.`, 
+`Go on! you insist. ‘We don’t even have to do the bungee jumping, we can just go there and see what’s happening. It’ll be interesting!’ As usual, you get your way. I give in and off we go along this dirt road, for what seems much more than five kilometres to me. But then, after driving for ages, suddenly, out of nowhere, some trees appear, like a small wood.`, 
 
 
-`‘This must be the place,’ you say. The road narrows into just a path, so we pull over to the side of the road. I couldn’t drive down there if I wanted to. As soon as we’re out of the car we can hear voices: people shouting and laughing. They sound like young people, they sound like they’re having a good time.`, 
+`This must be the place, you say. The road narrows into just a path, so we pull over to the side of the road. I couldn’t drive down there if I wanted to. As soon as we’re out of the car we can hear voices: people shouting and laughing. They sound like young people, they sound like they’re having a good time.`, 
 
 
 `We slowly walk to where the noise and people are. In the middle of the wood there’s a group of about 20 people. The youngest are about 15 or 16, while some of them are perhaps in their late 20s.`, 
 
 
-`They look up and see us, then say hello to us. They’re polite, friendly even, but I feel like we’re interrupting a private party – gatecrashing something they’re doing.`, 
+`They look up and see us, then say hello to us. They’re polite, friendly even, but I feel like we’re interrupting a private party gatecrashing something they’re doing.`, 
 
 
 `Once there had been a river running through the middle of the forest, but now there was just a dry ditch. It doesn’t matter; nobody is interested in swimming. A metal bridge crosses the ditch. The bridge doesn’t look too stable. I think the kids had built it themselves. There’s a big group of the kids in the middle of the bridge. They’re all leaning over and looking down into the ditch. They’re all shouting and laughing. Another person is hanging from a long piece of elastic rope in the middle of the ditch. He is laughing like he is mad. The other people slowly pull him up to the bridge. As the guy comes to the top he looks exhilarated and shocked, but also very, very happy.`, 
@@ -22,7 +22,7 @@ So we’re driving along, a road in the middle of nowhere, a few trees now and t
 `I look at you and can see what you’re thinking.`, 
 
 
-`‘I want to do that!’ you say. I knew it. And you know what I want to say: ‘Danger!!! Damage to internal organs! Safety procedures! Damage to your eyes! The rope can burn you! You can get tangled up in the rope! You can dislocate your arm or your leg! It’s certain that you will get bruises on your arms! What happens if the rope breaks? Who knows who these people are? Have you any idea how far away from a hospital we are?’ I don’t say it, but, yes, you’re right, I am thinking it. I don’t say anything, because I know that you won’t have answers for any of my questions. You know that I’m right, really.`, 
+`I want to do that! you say. I knew it. And you know what I want to say: ‘Danger!!! Damage to internal organs! Safety procedures! Damage to your eyes! The rope can burn you! You can get tangled up in the rope! You can dislocate your arm or your leg! It’s certain that you will get bruises on your arms! What happens if the rope breaks? Who knows who these people are? Have you any idea how far away from a hospital we are?’ I don’t say it, but, yes, you’re right, I am thinking it. I don’t say anything, because I know that you won’t have answers for any of my questions. You know that I’m right, really.`, 
 
 
 `You’ve always been a lot more adventurous than me. I know you think I’m boring and safe and always worried about danger and risk.`, 
@@ -55,12 +55,12 @@ export function getQuotes() {
     })
     
     var regex = /[’‘]/gi
-    console.log(regex)
+    
     var finalQuote = generatedQuote.replace(regex, `'`)
     return finalQuote
     
 }
 
 
-console.log(getQuotes())
+
 

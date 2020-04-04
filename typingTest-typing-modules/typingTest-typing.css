@@ -14,10 +14,14 @@ body{
     align-items: center;
     min-height: 70vh;
     user-select: none;
+    /*background-color: #ffde03;*/
+    font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
 }
 
 h1{
-    background-color: orangered;
+    /*background-color: orangered;*/
+    background-color: #0336FF;
+    color: white;
     padding: 10px;
     text-align: center;
     margin: 10px;
@@ -36,7 +40,8 @@ h1{
 }
 
 .timer{
-    background-color: orangered;
+     /*background-color: orangered;*/
+     background-color: #FF0266;
     padding: 10px;
     font-weight: bolder;
     border-radius: 4px;
@@ -49,7 +54,8 @@ h1{
 
 .basic-screen{
     /*height: 423px;*/
-    height: 403px;
+    /*height: 403px;*/
+    height: 380px;
     padding: 10px;
     overflow: hidden;
     /*transition: all .5s;*/
@@ -57,6 +63,7 @@ h1{
     -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    background-color: white;
 }
 
 
@@ -66,7 +73,8 @@ h1{
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
-    transition: all .2s;
+    transition: all .5s;
+    will-change: transform;
 }
 
 
@@ -115,28 +123,42 @@ h1{
 
 
 .letter-active{
+    /*
     color: skyblue;
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid skyblue;
+    */
+    
+    color:#0336FF;
+    border-bottom: 4px solid #0336FF;
     /*transition: all .5s;*/
-    animation: letter-active-border-bottom .5s;
+    /*animation: letter-active-border-bottom 1s;
+    animation-iteration-count: infinite;*/
+    font-weight: 900;
+}
+
+.letter-active-animated {
+    animation: letter-active-border-bottom 1s;
     animation-iteration-count: infinite;
 }
 
+
 @keyframes letter-active-border-bottom {
     0% {border-bottom: 4px solid white;}
-    100% {border-bottom: 4px solid skyblue;}
+    100% {border-bottom: 4px solid #0336FF;}
 }
 
 
 /*Wrong keyword css*/
 .is-wrong{
-    color: red;
+    color:#FF0266;
+    font-weight: 900;
     /*border-bottom: 4px solid red;*/
     background-color: rgba(221, 69, 72, 0.1);
 }
 
 .is-wrong-animated {
     /*transition: all .5s;*/ 
+    border-bottom: 4px solid #FF0266;
     animation: is-wrong-animated .2s;
 }
 
@@ -158,7 +180,7 @@ h1{
 
 @keyframes is-wrong-active-animated {
     0% {border-bottom: 4px solid white;}
-    100% {border-bottom: 4px solid red;}
+    100% {border-bottom: 4px solid #FF0266;;}
 }
 
 
@@ -168,8 +190,12 @@ h1{
 
 /*Correct keyword css*/
 .is-correct{
-    color: green;
-    background-color: rgba(69, 221, 69, 0.1);
+    
+    /*color: green;
+    background-color: rgba(69, 221, 69, 0.1);*/
+
+    color: #0336FF;;
+    background-color: rgba(3, 54, 255, 0.05);
 }
 /*--------------------*/
 
