@@ -26,6 +26,7 @@ var countDownStarted = false
 
 var transform = 0
 var first_line_y_client = 0
+var typing = null
 
 
 //dynamically generating html content--------------------------------------------
@@ -183,7 +184,7 @@ function setPrevLetter(callback) {
 
 //handle classes when going back-----------------------------
 function handleBackspaceClasses(letter_active, letter_next) {
-    letter_active.classList.remove("letter-active", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
+    letter_active.classList.remove("letter-active", "letter-active-animated", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
     letter_next.classList.remove("letter-next", "is-wrong", "is-correct", "is-wrong-animated", "is-wrong-active-animated")
 
     if(letter_active.previousElementSibling) {
@@ -199,6 +200,10 @@ function handleBackspaceClasses(letter_active, letter_next) {
 
 
 document.addEventListener('keydown', (event) => {
+    clearTimeout(typing)
+    typing = setTimeout(() => {
+        onTypingStop()
+    }, 2000);
 
     //Set CountDown-------------------------------------
     if(!countDownStarted) {
@@ -276,9 +281,7 @@ document.addEventListener('keydown', (event) => {
     }
     //-----------------------------------
 
-    setTimeout(() => {
-        animateLetterAcitve()
-    }, 1000);
+    
 
 })
 
@@ -462,6 +465,13 @@ function animateLetterAcitve() {
 }
 animateLetterAcitve()
 
+
+
+
+function onTypingStop() {
+    console.log("stoped typing..............")
+    animateLetterAcitve()
+}
 
 
 /*

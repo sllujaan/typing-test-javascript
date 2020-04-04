@@ -73,7 +73,7 @@ h1{
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
-    transition: all .2s;
+    transition: all .5s;
     will-change: transform;
 }
 
@@ -99,6 +99,7 @@ h1{
     font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
     font-weight: normal;
     text-shadow: 0 0 3px gray;*/
+    transition: none;
 }
 
 
@@ -151,6 +152,7 @@ h1{
 /*Wrong keyword css*/
 .is-wrong{
     color:#FF0266;
+    font-weight: 900;
     /*border-bottom: 4px solid red;*/
     background-color: rgba(221, 69, 72, 0.1);
 }
