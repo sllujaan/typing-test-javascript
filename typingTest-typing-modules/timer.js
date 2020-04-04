@@ -6,7 +6,8 @@ export var timer_minute = document.getElementsByClassName("minute")[0]
 export var timer_second = document.getElementsByClassName("second")[0]
 
 export function setCountDown(min, sec, callback) {
-    if( !min || (min && min <=0) ) min = 1
+
+    if( !min || (min && min <=0) || (typeof min != 'number') ) min = 1
     if( !sec || (sec && sec < 0) ) sec = 0
 
     var minPad = String(min).padStart(2, 0)

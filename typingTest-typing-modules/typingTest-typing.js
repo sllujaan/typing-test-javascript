@@ -6,8 +6,14 @@ import {quote, getQuotes} from '../assets/quotes.js'
 //Reading parameter from url---------------
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
-var test = urlParams.get('test')
+var test = parseInt(urlParams.get('test'))
 var minParam
+
+console.log(test)
+
+if (test && ( (typeof test !== 'number') || test < 1 ) ) test = 1
+if (test && test > 10) test = 10
+
 if(test) {
     minParam = test
     var minPad = String(minParam).padStart(2, 0)

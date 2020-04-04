@@ -13,7 +13,7 @@ So we’re driving along, a road in the middle of nowhere, a few trees now and t
 `We slowly walk to where the noise and people are. In the middle of the wood there’s a group of about 20 people. The youngest are about 15 or 16, while some of them are perhaps in their late 20s.`, 
 
 
-`They look up and see us, then say hello to us. They’re polite, friendly even, but I feel like we’re interrupting a private party – gatecrashing something they’re doing.`, 
+`They look up and see us, then say hello to us. They’re polite, friendly even, but I feel like we’re interrupting a private party gatecrashing something they’re doing.`, 
 
 
 `Once there had been a river running through the middle of the forest, but now there was just a dry ditch. It doesn’t matter; nobody is interested in swimming. A metal bridge crosses the ditch. The bridge doesn’t look too stable. I think the kids had built it themselves. There’s a big group of the kids in the middle of the bridge. They’re all leaning over and looking down into the ditch. They’re all shouting and laughing. Another person is hanging from a long piece of elastic rope in the middle of the ditch. He is laughing like he is mad. The other people slowly pull him up to the bridge. As the guy comes to the top he looks exhilarated and shocked, but also very, very happy.`, 
