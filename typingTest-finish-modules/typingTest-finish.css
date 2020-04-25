@@ -36,7 +36,6 @@ h1{
     align-items: center;
     
     width: 100%;
-    background-color: orange;
     padding: 10px 0;
 }
 
@@ -50,8 +49,11 @@ h1{
     margin-top: 50px;
 
     width: 50%;
-    background-color: purple;
     border-radius: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
 }
 
 .score-title{
@@ -61,8 +63,6 @@ h1{
     color: gray;
     text-shadow: 0 0 2px gray;
     border-radius: var(--border-radius);
-
-    background-color: saddlebrown;
 }
 
 .score-board {
@@ -73,7 +73,6 @@ h1{
     margin: 10px;
     text-shadow: 0 0 2px white;
 
-    background-color: red;
 
 }
 

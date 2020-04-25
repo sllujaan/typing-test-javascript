@@ -67,7 +67,7 @@ quoteWords.forEach(word => {
 //-------------------------------------------------------------
 
 //elements to show or hide-------------------------------------
-var container_score = document.getElementsByClassName("container-score")[0]
+var score_container = document.getElementById("score-container")
 var basic_screen = document.getElementsByClassName("basic-screen")[0]
 var timer_container = document.getElementsByClassName("timer-container")[0]
 var score_board = document.getElementsByClassName("score-board")[0]
@@ -380,11 +380,11 @@ function handleResult(score) {
     var score_board_pad = String(score).padStart(2, 0)
     score_board_pad = Math.floor(score_board_pad)
     score_board.innerText = score_board_pad;
-    container_score.style.setProperty("display", "visible")
+    score_container.style.setProperty("display", "block")
     //-------------------------------
 }
 
-console.log(container_score)
+console.log(score_container)
 
 
 /*
