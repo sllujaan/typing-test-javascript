@@ -1,4 +1,6 @@
 
+
+
 var score_board = document.getElementsByClassName("score-board")[0]
 
 var queryString = window.location.search
@@ -7,6 +9,6 @@ var score = parseInt(urlParams.get('score'))
 
 
 if (score && (typeof score === 'number')) {
-    score_board_pad = String(score).padStart(2, 0)
+    var score_board_pad = String(score).padStart(2, 0)
     score_board.innerText = score_board_pad
 }

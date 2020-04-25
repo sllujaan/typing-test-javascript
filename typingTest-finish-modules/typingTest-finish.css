@@ -21,9 +21,9 @@ h1{
     text-align: center;
     margin: 10px;
 
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     border-radius: var(--border-radius-box);
 
     
@@ -37,19 +37,21 @@ h1{
     
     width: 100%;
     background-color: orange;
+    padding: 10px 0;
 }
 
 .socre-container {
     text-align: center;
     padding: 10px;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     border-radius: var(--border-radius);
     margin-top: 50px;
 
     width: 50%;
     background-color: purple;
+    border-radius: 10px;
 }
 
 .score-title{
