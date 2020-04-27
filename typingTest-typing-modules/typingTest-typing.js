@@ -66,6 +66,14 @@ quoteWords.forEach(word => {
 
 //-------------------------------------------------------------
 
+//elements to show or hide-------------------------------------
+var score_container = document.getElementById("score-container")
+var basic_screen = document.getElementsByClassName("basic-screen")[0]
+var timer_container = document.getElementsByClassName("timer-container")[0]
+var score_board = document.getElementsByClassName("score-board")[0]
+var focusMe = document.getElementById("focusMe")
+
+//------------------------------------------
 
 var basic_word = document.getElementsByClassName("basic-word")[0]
 basic_word.children[0].classList.add("letter-next")
@@ -189,7 +197,8 @@ document.addEventListener('keydown', (event) => {
         setCountDown(minParam, 0, (done) => {
             if(done) {
                 var score = getNetWPM()
-                window.location = `../typingTest-finish-modules/typingTest-finish.html?score=${score}`
+                handleResult(score)
+                //window.location = `../typingTest-finish-modules/typingTest-finish.html?score=${score}`
             }
         })
         countDownStarted = true
@@ -362,3 +371,29 @@ function onTypingStop() {
     animateLetterAcitve()
 }
 
+function handleResult(score) {
+
+    //hidding typing conainer and timer---------------------------
+    timer_container.style.setProperty("display", "none")
+    basic_screen.style.setProperty("display", "none")
+    //-----------------------------------
+
+    //setting score and displaying------------------
+    var score_board_pad = String(score).padStart(2, 0)
+    score_board_pad = Math.floor(score_board_pad)
+    score_board.innerText = score_board_pad;
+    score_container.style.setProperty("display", "block")
+    //-------------------------------
+}
+
+console.log(score_container)
+
+
+/*
+var container_score = document.getElementsByClassName("container-score")[0]
+var basic_screen = document.getElementsByClassName("basic-screen")[0]
+var timer_container = document.getElementsByClassName("timer-container")[0]
+var score_board = document.getElementsByClassName("score-board")[0]
+*/
+
+focusMe.focus()

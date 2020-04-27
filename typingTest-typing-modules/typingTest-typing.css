@@ -16,6 +16,16 @@ body{
     user-select: none;
     /*background-color: #ffde03;*/
     font-family: pt-mono,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+
+    margin: 0;
+    padding: 0;
+
+}
+
+.top-container-typing {
+    width: 100%;
+
+    display: block;
 }
 
 h1{
@@ -25,10 +35,11 @@ h1{
     padding: 10px;
     text-align: center;
     margin: 10px;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     border-radius: var(--border-radius-box);
+    
 }
 
 
@@ -37,6 +48,8 @@ h1{
     padding: 10px;
     display: flex;
     justify-content: flex-end;
+
+    position: relative;
 }
 
 .timer{
@@ -45,9 +58,9 @@ h1{
     padding: 10px;
     font-weight: bolder;
     border-radius: 4px;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 /*--------------------*/
 
@@ -60,10 +73,19 @@ h1{
     overflow: hidden;
     /*transition: all .5s;*/
     border-radius: var(--border-radius-box);
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
-    box-shadow: 0px 1px 5px 0px rgba(161,161,161,1);
     background-color: white;
+
+    position: relative;
+    width: 95%;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    padding: 0;
+
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
 
@@ -75,6 +97,8 @@ h1{
     position: relative;
     transition: all .5s;
     will-change: transform;
+
+
 }
 
 
